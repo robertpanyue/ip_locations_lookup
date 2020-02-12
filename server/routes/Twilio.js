@@ -12,12 +12,9 @@ router.post('/', cors(), async (req, res) => {
 	res.header('Content-Type', 'application/json');
 	client.messages
 		.create({
-			body: `Here is the info of IP address: IP address: ${req.body.data.ip}, 
-            Country Name: ${req.body.data.country_name},
-            State: ${req.body.data.state_prov}, 
-            District: ${req.body.data.district},
-            City: ${req.body.data.city},
-            ZipCode: ${req.body.data.zipcode}`,
+			body: `Here is the info of IP address: IP address: ${req.body.data.ip}, Country Name: ${req.body.data
+				.country_name}, State: ${req.body.data.state_prov}, District: ${req.body.data.district}, City: ${req
+				.body.data.city}, ZipCode: ${req.body.data.zipcode}`,
 			from: '+18647540960',
 			to: `+1${req.body.phone}`
 		})
