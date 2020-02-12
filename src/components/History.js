@@ -83,6 +83,7 @@ class History extends React.Component {
 					for (var i = 0; i < array.length; i++) {
 						var o = array[i];
 						o.key = o._id;
+						o.TimeStamp = o.TimeStamp.substring(0, o.TimeStamp.length - 5);
 					}
 					self.setState({ isError: false, data: array });
 				})
@@ -93,7 +94,6 @@ class History extends React.Component {
 	};
 
 	onChangeSelect = (e) => {
-		console.log('radio checked', e.target.value);
 		this.setState({
 			value: e.target.value
 		});

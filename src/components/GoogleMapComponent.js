@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
-import GMapMarker from './GMapMarker';
-import { config } from '../../config';
+import { config } from '../config';
 const google = window.google;
 
 const MapWithAMarker = withScriptjs(
 	withGoogleMap((props) => (
-		<GoogleMap defaultZoom={12} defaultCenter={{ lat: 40.7128, lng: -73.935242 }}>
-			<Marker position={{ lat: props.data.lat, lng: props.data.lng }} />
+		<GoogleMap
+			defaultZoom={12}
+			center={{ lat: parseFloat(props.data.latitude), lng: parseFloat(props.data.longitude) }}
+		>
+			<Marker position={{ lat: parseFloat(props.data.latitude), lng: parseFloat(props.data.longitude) }} />
 		</GoogleMap>
 	))
 );
 
-class GMaps extends Component {
+class GoogleMapComponent extends Component {
 	render() {
+		console.log(this.props.data);
 		const url =
 			'https://maps.googleapis.com/maps/api/js?key=' +
-			apiKey.googlemap +
+			config.googlemap +
 			'&v=3.exp&libraries=geometry,drawing,places';
 		return (
-			<div style={{ height: '10px', width: '100%' }}>
+			<div style={{ height: '50%', width: '100%' }}>
 				<MapWithAMarker
 					googleMapURL={url}
 					loadingElement={<div style={{ height: `100%` }} />}
@@ -32,4 +35,4 @@ class GMaps extends Component {
 	}
 }
 
-export default GMaps;
+export default GoogleMapComponent;
