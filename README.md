@@ -1,4 +1,5 @@
 **API keys are not pushed to the github for security purpose.**
+The app is deployed to [http://52.91.204.212:3000/]
 
 ## Available Scripts
 
